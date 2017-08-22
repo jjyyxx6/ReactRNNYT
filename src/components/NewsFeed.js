@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import {
   ListView,
   StyleSheet,
-  View，
+  View,
   Modal,
   TouchableOpacity
 } from 'react-native';
@@ -23,7 +23,7 @@ export default class NewsFeed extends Component {
     this.onModalClose = this.onModalClose.bind(this);
     this.onModalOpen = this.onModalOpen.bind(this);
   }
-  
+
   renderModel() {
     return (
       <Modal
