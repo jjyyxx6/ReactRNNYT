@@ -4,9 +4,12 @@ import {
   StyleSheet,
   View,
   Modal,
+  WebView,
   TouchableOpacity
 } from 'react-native';
 import * as globalStyles from '../styles/global';
+import SmallText from './SmallText';
+import NewsItem from './NewsItem';
 
 export default class NewsFeed extends Component {
 
@@ -16,7 +19,7 @@ export default class NewsFeed extends Component {
       rowHasChanged: (row1, row2) => row1.title !== row2.title
     });
     this.state = {
-      dataSource: this.ds.cloneWithRows(props.news)
+      dataSource: this.ds.cloneWithRows(props.news),
       modalVisible: false
     };
     this.renderRow = this.renderRow.bind(this);
@@ -24,7 +27,7 @@ export default class NewsFeed extends Component {
     this.onModalOpen = this.onModalOpen.bind(this);
   }
 
-  renderModel() {
+  renderModal() {
     return (
       <Modal
         animationType="slide"
@@ -49,7 +52,7 @@ export default class NewsFeed extends Component {
 
   onModalOpen(url) {
     this.setState({
-      modalVisible: true
+      modalVisible: true,
       modalUrl: url
     });
   }
@@ -119,7 +122,7 @@ NewsFeed.defaultProps = {
 const styles = StyleSheet.create({
   newsItem: {
     marginBottom: 20
-  }
+  },
   modalContent: {
     flex: 1,
     justifyContent: 'center',
